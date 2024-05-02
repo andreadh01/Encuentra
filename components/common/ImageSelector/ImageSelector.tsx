@@ -94,9 +94,9 @@ export default function ImageSelector({
           resizeMethod="auto"
           style={styles.button}
         />
-      ) : (
-        <UploadImageIcon />
-      )}
+      ) : null
+      // <UploadImageIcon />
+      }
     </Pressable>
   );
 }

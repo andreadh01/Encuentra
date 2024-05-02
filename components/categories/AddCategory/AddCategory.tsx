@@ -69,9 +69,9 @@ export default function AddCategory() {
             >
               {selectedEmoji ? (
                 <Text style={{ fontSize: 25 }}>{selectedEmoji}</Text>
-              ) : (
-                <EmojiFace />
-              )}
+              ) : null
+              // <EmojiFace />
+              }
             </Pressable>
           </View>
           <View style={styles.textInputErrorsRow}>
@@ -122,15 +122,15 @@ export default function AddCategory() {
           >
             {selectedEmoji ? (
               <Text style={styles.previewEmoji}>{selectedEmoji}</Text>
-            ) : (
-              <EmojiFace
-                style={{
-                  color: "white",
-                  backgroundColor: "white",
-                  borderRadius: 32,
-                }}
-              />
-            )}
+            ) : null
+            // <EmojiFace
+            //   style={{
+            //     color: "white",
+            //     backgroundColor: "white",
+            //     borderRadius: 32,
+            //   }}
+            // />
+            }
             <Text style={styles.previewCategoryName} numberOfLines={3}>
               {categoryName ? categoryName : "Nombre de la categoría"}
             </Text>

@@ -87,11 +87,11 @@ export default function TrendingList() {
                       </Text>
                     </View>
                     <View style={styles.assistants}>
-                      <ProfileIcon
+                      {/* <ProfileIcon
                         width={24}
                         height={24}
                         style={{ color: "white" }}
-                      />
+                      /> */}
                       <Text style={styles.subtitleText}>
                         {event.cantidad_asistentes}
                       </Text>
@@ -106,7 +106,7 @@ export default function TrendingList() {
                         paddingRight: 15,
                       }}
                     >
-                      <MapPin />
+                      {/* <MapPin /> */}
                       <Text style={styles.subtitleText}>{event.direccion}</Text>
                     </View>
                     <View

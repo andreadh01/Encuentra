@@ -30,9 +30,7 @@ const ConfirmationModal = ({
             <View style={styles.buttonContainer}>
               <ExitButton handlePress={exitButtonPress} />
             </View>
-            <View style={{ marginTop: 30 }}>
-              <ShieldIcon />
-            </View>
+            <View style={{ marginTop: 30 }}>{/* <ShieldIcon /> */}</View>
 
             <Text style={styles.modalText}>{message}</Text>
             <CheckoutButton

@@ -4,7 +4,10 @@ import styles from "./Coments.style";
 import Profile from "../../../assets/images/navigation/profile.svg";
 import { ComentsContext } from "../../../src/providers/ComentsProvider";
 import { COLORS, FONTS, SIZES } from "../../../constants/theme";
-import { getAutor, getAllComentsFromEvent } from "../../../src/services/coments";
+import {
+  getAutor,
+  getAllComentsFromEvent,
+} from "../../../src/services/coments";
 import { formatDate } from "date-fns";
 import { User } from "../../../src/types/users.types";
 import { EventWithReactions } from "../../../src/types/events.types";
@@ -56,21 +59,31 @@ export default function ComentsList({ event }: EventDetailsProps) {
             color: COLORS.grey,
             fontSize: SIZES.medium,
           }}
-        >
-        </Text>
+        ></Text>
       ) : (
         coments.map((coment, index) => (
-          <View key={index} style={{ flexDirection: "row", alignItems: "center", marginBottom: 20 }}>
-            <Profile
+          <View
+            key={index}
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginBottom: 20,
+            }}
+          >
+            {/* <Profile
               style={{
                 color: "rgba(6, 187, 142, 1)",
                 transform: [{ scale: 1.4 }],
                 marginLeft: 5,
                 marginRight: 20
               }}
-            />
+            /> */}
             <View style={{ flex: 1 }}>
-              <Text style={styles.heading}>{autores[index] ? `${autores[index].nombres} ${autores[index].apellidos}` : "Nombre de usuario"}</Text>
+              <Text style={styles.heading}>
+                {autores[index]
+                  ? `${autores[index].nombres} ${autores[index].apellidos}`
+                  : "Nombre de usuario"}
+              </Text>
               <Text
                 style={{
                   fontFamily: FONTS.RubikRegular,

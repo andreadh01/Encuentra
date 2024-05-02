@@ -40,19 +40,19 @@ function NotificationIconType({
   tipoNotification: Notification["tipo"];
 }) {
   if (tipoNotification === "Me gusta") {
-    return <NotificationLikeIcon />;
+    return null;
   } else if (tipoNotification === "No me gusta") {
-    return <NotificationDislikeIcon />;
+    return null;
   } else if (tipoNotification === "Asistiré") {
-    return <NotificationAssistIcon />;
+    return null;
   } else if (tipoNotification === "Comentario") {
-    return <NotificationCommentIcon />;
+    return null;
   } else if (tipoNotification == "Evento Interés") {
-    return <NotificationInterestEventIcon />;
+    return null;
   } else if (tipoNotification == "Evento_Bloqueado_Asistentes") {
-    return <NotificationBlockedEventAssistantsIcon />;
+    return null;
   } else if (tipoNotification == "Evento_Bloqueado_Propietario") {
-    return <NotificationBlockedEventPropietaryIcon />;
+    return null;
   } else {
     console.error(
       "Nunca debi haber llegado aqui!, error de tipo de notificacion"

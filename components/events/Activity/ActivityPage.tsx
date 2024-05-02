@@ -92,7 +92,7 @@ export default function ActivityPage() {
     var icon;
     switch (event.reaccion_usuario) {
       case "Asistiré":
-        icon = <Assist width={36} height={36} />;
+        // icon = <Assist width={36} height={36} />;
         break;
       case "No me gusta":
         backgroundColor = "#FD6767";

@@ -49,7 +49,7 @@ export default function NotificationsPageComponent() {
             router.push("/notifications/preferences");
           }}
         >
-          <ConfigurationIcon />
+          {/* <ConfigurationIcon /> */}
         </TouchableOpacity>
       </View>
       {preferences == null || notificationsLoading ? (
@@ -73,7 +73,7 @@ export default function NotificationsPageComponent() {
                   router.push("/notifications/preferences");
                 }}
               >
-                <ConfigurationIcon2 />
+                {/* <ConfigurationIcon2 /> */}
                 <Text style={styles.noPreferencesSelectedBtnText}>
                   Ir a la configuración de notificaciones
                 </Text>

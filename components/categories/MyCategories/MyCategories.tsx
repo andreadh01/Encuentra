@@ -62,7 +62,7 @@ export default function MyCategories() {
             router.push("/notifications/");
           }}
         >
-          <NotificationGreyIcon />
+          {/* <NotificationGreyIcon /> */}
         </TouchableOpacity>
       </View>
 

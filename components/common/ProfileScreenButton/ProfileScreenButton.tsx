@@ -23,7 +23,7 @@ export default function ProfileScreenButton({
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.iconTextContainer}>
         <View style={styles.iconContainer}>
-          {icon()}
+          {/* {icon()} */}
           {displayNotificationCircle && (
             <View style={[styles.pendingEventsIndicator]}>
               <Text style={[styles.pendingNotificationsQuantity]}>

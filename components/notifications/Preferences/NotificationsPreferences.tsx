@@ -1,5 +1,11 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ActivityIndicator, Dimensions, Switch, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Dimensions,
+  Switch,
+  Text,
+  View,
+} from "react-native";
 import ReturnButton from "../../common/ReturnButton/ReturnButton";
 import styles from "./notificationsPreferences.style";
 import ArrowIcon from "../../../assets/images/arrow.svg";
@@ -162,7 +168,7 @@ export default function NotificationsPreferences() {
                 >
                   Categorías favoritas
                 </Text>
-                <ArrowIcon style={{ color: "#404040" }} />
+                {/* <ArrowIcon style={{ color: "#404040" }} /> */}
               </TouchableOpacity>
               <BottomSheet
                 ref={ref}

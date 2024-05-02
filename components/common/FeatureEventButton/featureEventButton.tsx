@@ -23,7 +23,7 @@ const FeatureEventButton = ({}) => {
           router.push("/events/featureEvent");
         }}
       >
-        <FeatureEventIcon />
+        {/* <FeatureEventIcon /> */}
         <Text style={styles.text}>Destacar evento</Text>
       </TouchableOpacity>
       <GuestLoginModal

@@ -1,14 +1,19 @@
-import React from 'react';
-import { TouchableOpacity} from 'react-native';
-import styles from './ExitButton.styles';
-import Back from '../../../assets/images/back.svg';
+import { Image } from "expo-image";
+import { StyleSheet, TouchableOpacity } from "react-native";
+import styles from "./ExitButton.styles";
 
-const ExitButton = ({handlePress}) => {
-    return (
-        <TouchableOpacity style={styles.button} onPress={handlePress}>
-            <Back/>
-        </TouchableOpacity>
-    )
-}
+const back = require("../../../assets/images/back.svg");
+
+const ExitButton = ({ handlePress }) => {
+  return (
+    <TouchableOpacity style={styles.button} onPress={handlePress}>
+      <Image
+        source={back}
+        alt="Back"
+        style={[{ ...StyleSheet.absoluteFillObject }]}
+      />
+    </TouchableOpacity>
+  );
+};
 
 export default ExitButton;

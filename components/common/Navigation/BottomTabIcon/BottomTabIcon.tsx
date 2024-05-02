@@ -35,21 +35,19 @@ const BottomTabIcon = ({ route, isFocused }: Props) => {
   const renderIcon = (route: string) => {
     switch (route) {
       case "Main":
-        return (
-          <MainIcon
-            width={iconSize}
-            height={iconSize}
-            style={{ color: iconColor }}
-          />
-        );
+        return null;
+      // <MainIcon
+      //   width={iconSize}
+      //   height={iconSize}
+      //   style={{ color: iconColor }}
+      // />
       case "Trending":
-        return (
-          <TrendingIcon
-            width={iconSize}
-            height={iconSize}
-            style={{ color: iconColor }}
-          />
-        );
+        return null;
+      // <TrendingIcon
+      //   width={iconSize}
+      //   height={iconSize}
+      //   style={{ color: iconColor }}
+      // />
       case "Create":
         return (
           <MaterialCommunityIcons
@@ -59,21 +57,20 @@ const BottomTabIcon = ({ route, isFocused }: Props) => {
           />
         );
       case "Liked":
-        return (
-          <LikedIcon
-            width={iconSize}
-            height={iconSize}
-            style={{ color: iconColor }}
-          />
-        );
+        return null;
+      // <LikedIcon
+      //   width={iconSize}
+      //   height={iconSize}
+      //   style={{ color: iconColor }}
+      // />
       case "Profile":
         return (
           <View>
-            <ProfileIcon
+            {/* <ProfileIcon
               width={iconSize}
               height={iconSize}
               style={{ color: iconColor }}
-            />
+            /> */}
             <View
               style={[
                 notificacionesPendientesDeVer && styles.pendingEventsIndicator,

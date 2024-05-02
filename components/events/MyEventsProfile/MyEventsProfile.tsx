@@ -121,7 +121,7 @@ const MyEventsProfile: React.FC<Props> = ({ events, onEventSelect }) => {
             ))}
           </View>
           <View style={styles.addressContainer}>
-            <Map_Pin />
+            {/* <Map_Pin /> */}
             <Text style={styles.address}>
               {" "}
               {item.nombre_municipio} {item.nombre_estado}

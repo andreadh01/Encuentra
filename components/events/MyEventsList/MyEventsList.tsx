@@ -74,13 +74,13 @@ const MyEventsList: React.FC<Props> = ({ events, onEventSelect }) => {
             style={styles.image}
             resizeMode="cover"
           />
-          {isSelected && (
-            <CheckMarkCircle
-              width={40}
-              height={40}
-              style={{ position: "absolute", top: "28%", left: "-39%" }}
-            />
-          )}
+          {isSelected &&
+            // <CheckMarkCircle
+            //   width={40}
+            //   height={40}
+            //   style={{ position: "absolute", top: "28%", left: "-39%" }}
+            // />
+            null}
         </View>
         <View style={styles.infoContainer}>
           <View style={styles.dateAndTimeContainer}>
@@ -98,7 +98,7 @@ const MyEventsList: React.FC<Props> = ({ events, onEventSelect }) => {
             <Text style={styles.title}>{item.nombre}</Text>
           </View>
           <View style={styles.addressContainer}>
-            <Map_Pin />
+            {/* <Map_Pin /> */}
             <Text style={styles.address}>
               {" "}
               {item.nombre_municipio} {item.nombre_estado}

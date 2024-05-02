@@ -19,8 +19,8 @@ const CheckoutResultModal = ({ isVisible, type }) => {
       <View style={styles.modalBackground}>
         <View style={styles.modalViewUp}>
           <View style={styles.iconContainer}>
-            {type === "exito" && <SuccessIcon />}
-            {type != "exito" && <CancelIcon />}
+            {/* {type === "exito" && <SuccessIcon />}
+            {type != "exito" && <CancelIcon />} */}
           </View>
           <View style={styles.contentContainer}>
             <Text style={styles.modalText}>{message}</Text>

@@ -17,7 +17,7 @@ const ReturnButton = () => {
         }
       }}
     >
-      <BackArrow style={{ color: "rgba(30, 35, 44, 1)" }} />
+      {/* <BackArrow style={{ color: "rgba(30, 35, 44, 1)" }} /> */}
     </TouchableOpacity>
   );
 };

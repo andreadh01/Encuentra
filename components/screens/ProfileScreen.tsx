@@ -101,7 +101,7 @@ const ProfileScreen = () => {
                 />
               ) : (
                 <View style={styles.noProfilePicture}>
-                  <NoAvatarIcon width={"100%"} height={"100%"} />
+                  {/* <NoAvatarIcon width={"100%"} height={"100%"} /> */}
                 </View>
               )}
             </LinearGradient>
