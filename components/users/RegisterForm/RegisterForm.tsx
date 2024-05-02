@@ -7,7 +7,7 @@ import {
   Modal,
   Alert,
 } from "react-native";
-import { useRouter, Stack, Link } from "expo-router";
+// import { useRouter, Stack, Link } from "expo-router";
 
 import styles from "./RegisterForm.style";
 import BaseTextInput from "../../common/BaseTextInput/BaseTextInput";
@@ -27,7 +27,7 @@ const RegisterForm = () => {
   const passwordRegex = new RegExp(
     "^(?=.*[A-ZÑ])(?=.*\\d)[A-Za-zÑñ\\d@$!%*?&-_]{8,15}$"
   );
-  const router = useRouter();
+  // const router = useRouter();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModalTwoVisible, setIsModalTwoVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
@@ -106,7 +106,6 @@ const RegisterForm = () => {
       (value) => value != ""
     );
 
-
     if (allFieldsAreValid && allFieldsHaveInput) {
       if (!passwordRegex.test(fields.contrasena)) {
         setModalMessage(
@@ -123,10 +122,10 @@ const RegisterForm = () => {
         if (validEmail && validPhone) {
           const user = await signUp();
           setLoading(false);
-          router.push({
-            pathname: "/users/verificationCode",
-            params: { id: user.id, email: user.email,verificationType: verificationType },
-          });
+          // router.push({
+          //   pathname: "/users/verificationCode",
+          //   params: { id: user.id, email: user.email,verificationType: verificationType },
+          // });
         } else {
           if (!validEmail)
             setModalMessage("El correo ingresado ya está registrado");
@@ -150,7 +149,7 @@ const RegisterForm = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Stack.Screen
+      {/* <Stack.Screen
         options={{
           headerShown: true,
           headerStyle: { backgroundColor: COLORS.white },
@@ -158,7 +157,7 @@ const RegisterForm = () => {
           headerLeft: () => <ReturnButton />,
           headerTitle: "",
         }}
-      />
+      /> */}
       <ScrollView style={styles.scrollView}>
         <View style={styles.titleContainer}>
           <Text style={styles.title}>Registrarse</Text>
@@ -166,6 +165,7 @@ const RegisterForm = () => {
 
         <View style={styles.inputContainer}>
           <BaseTextInput
+            testID="firstNameInput"
             placeholder="Nombre(s) *"
             style={validFields.nombres ? styles.input : styles.badInput}
             onChangeText={(value) => handleChange("nombres", value)}
@@ -175,6 +175,7 @@ const RegisterForm = () => {
             Por favor, complete este campo
           </Text>
           <BaseTextInput
+            testID="lastNameInput"
             placeholder="Apellido(s) *"
             style={validFields.apellidos ? styles.input : styles.badInput}
             onChangeText={(value) => handleChange("apellidos", value)}
@@ -186,6 +187,7 @@ const RegisterForm = () => {
             Por favor, complete este campo
           </Text>
           <BaseTextInput
+            testID="emailInput"
             placeholder="Correo electrónico *"
             inputMode="email"
             keyboardType="email-address"
@@ -200,6 +202,7 @@ const RegisterForm = () => {
             placeholder="Contraseña *"
             style={validFields.contrasena ? styles.input : styles.badInput}
             handleTextChange={(value) => handleChange("contrasena", value)}
+            value={fields.contrasena}
           />
           <Text
             style={validFields.contrasena ? styles.goodText : styles.badText}
@@ -207,6 +210,7 @@ const RegisterForm = () => {
             Por favor, complete este campo
           </Text>
           <BaseTextInput
+            testID="phoneInput"
             placeholder="Celular *"
             keyboardType="numeric"
             inputMode="numeric"
@@ -240,7 +244,7 @@ const RegisterForm = () => {
           <Text
             style={{ color: COLORS.darkOrange, fontFamily: FONTS.RubikBold }}
             onPress={() => {
-              router.replace("/users/login");
+              // router.replace("/users/login");
             }}
           >
             Inicia Sesión
@@ -248,7 +252,7 @@ const RegisterForm = () => {
         </Text>
       </SafeAreaView>
 
-      {isLoading && <LoadingScreen/>}
+      {isLoading && <LoadingScreen />}
 
       <ModalOneButton
         isVisible={isModalVisible}
@@ -273,7 +277,7 @@ const RegisterForm = () => {
         buttonText2="Recuperar Cuenta"
         onPress1={() => {
           setIsModalTwoVisible(false);
-          router.push("/users/login");
+          // router.push("/users/login");
         }}
         onPress2={() => {
           console.log("voy a recuperar cuenta");
