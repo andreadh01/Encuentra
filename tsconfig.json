@@ -4,5 +4,6 @@
     "typeRoots": ["./src/types"]
   },
   "extends": "expo/tsconfig.base",
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["**/*.test.tsx", "**/*.test.ts"]
 }
