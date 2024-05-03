@@ -120,7 +120,7 @@ const RegisterForm = () => {
           verifyPhone(fields.celular),
         ]);
         if (validEmail && validPhone) {
-          const user = await signUp();
+          // const user = await signUp();
           setLoading(false);
           // router.push({
           //   pathname: "/users/verificationCode",
@@ -137,6 +137,9 @@ const RegisterForm = () => {
           setIsModalTwoVisible(true);
         }
       }
+    } else {
+      setModalMessage("Por favor, complete todos los campos");
+      setIsModalVisible(true);
     }
   };
 
@@ -165,7 +168,7 @@ const RegisterForm = () => {
 
         <View style={styles.inputContainer}>
           <BaseTextInput
-            testID="firstNameInput"
+            testID="RegisterForm:Input:FirstName"
             placeholder="Nombre(s) *"
             style={validFields.nombres ? styles.input : styles.badInput}
             onChangeText={(value) => handleChange("nombres", value)}
@@ -175,7 +178,7 @@ const RegisterForm = () => {
             Por favor, complete este campo
           </Text>
           <BaseTextInput
-            testID="lastNameInput"
+            testID="RegisterForm:Input:LastName"
             placeholder="Apellido(s) *"
             style={validFields.apellidos ? styles.input : styles.badInput}
             onChangeText={(value) => handleChange("apellidos", value)}
@@ -187,7 +190,7 @@ const RegisterForm = () => {
             Por favor, complete este campo
           </Text>
           <BaseTextInput
-            testID="emailInput"
+            testID="RegisterForm:Input:Email"
             placeholder="Correo electrónico *"
             inputMode="email"
             keyboardType="email-address"
@@ -199,6 +202,7 @@ const RegisterForm = () => {
             Por favor, complete este campo
           </Text>
           <PasswordInput
+            testID="RegisterForm:Input:Password"
             placeholder="Contraseña *"
             style={validFields.contrasena ? styles.input : styles.badInput}
             handleTextChange={(value) => handleChange("contrasena", value)}
@@ -210,7 +214,7 @@ const RegisterForm = () => {
             Por favor, complete este campo
           </Text>
           <BaseTextInput
-            testID="phoneInput"
+            testID="RegisterForm:Input:Phone"
             placeholder="Celular *"
             keyboardType="numeric"
             inputMode="numeric"
@@ -225,6 +229,7 @@ const RegisterForm = () => {
 
         <View style={styles.button}>
           <LinkButton
+            testID="RegisterForm:Button:Submit"
             text="Crear cuenta"
             handleNavigate={() => {
               handleSubmit();
@@ -255,6 +260,7 @@ const RegisterForm = () => {
       {isLoading && <LoadingScreen />}
 
       <ModalOneButton
+        testID="RegisterForm:ModalOne"
         isVisible={isModalVisible}
         title="ola"
         message={modalMessage}
@@ -270,6 +276,7 @@ const RegisterForm = () => {
       />
 
       <ModalTwoButton
+        testID="RegisterForm:ModalTwo"
         isVisible={isModalTwoVisible}
         title="ola"
         message={modalMessage}

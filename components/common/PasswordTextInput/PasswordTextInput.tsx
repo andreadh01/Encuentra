@@ -16,9 +16,11 @@ interface PasswordInputProps {
   style: StyleProp<TextStyle>;
   handleTextChange: React.Dispatch<React.SetStateAction<string>>;
   value?: string;
+  testID?: string;
 }
 
 const PasswordInput: React.FC<PasswordInputProps> = ({
+  testID = "passwordInput",
   value,
   placeholder,
   style,
@@ -33,7 +35,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
   return (
     <View style={styles.container}>
       <TextInput
-        testID="passwordInput"
+        testID={testID}
         secureTextEntry={!showPassword}
         placeholder={placeholder}
         onChangeText={handleTextChange}
