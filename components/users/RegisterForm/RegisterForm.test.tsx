@@ -1,6 +1,7 @@
 import { act, fireEvent, render } from "@testing-library/react-native";
 
 import RegisterForm from "./RegisterForm";
+import React from "react";
 
 const elementTestIds = {
   firstNameInput: "RegisterForm:Input:FirstName",
