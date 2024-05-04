@@ -47,4 +47,22 @@ describe("OTP Code verification", () => {
     expect(submitOtpMock).toHaveBeenCalled();
     expect(submitOtpMock).toHaveReturnedWith(true);
   });
+
+  it("should enter OTP and fail validation", async () => {
+    useRouter.mockReturnValue({
+      push: pushMock,
+    });
+
+    useLocalSearchParams.mockReturnValue(searchParamsMock);
+
+    const { findByDisplayValue } = render(
+      <VerificationCodeForm submitOtp={submitOtpMock} />
+    );
+    const codeInput = await findByDisplayValue("");
+
+    fireEvent.changeText(codeInput, "123457");
+    expect(codeInput.props.value).toBe("123457");
+    expect(submitOtpMock).toHaveBeenCalled();
+    expect(submitOtpMock).toHaveReturnedWith(false);
+  });
 });
