@@ -11,7 +11,7 @@ import MyCategoriesIcon from "../../assets/images/profile_screen/my_categories_i
 import LogOutIcon from "../../assets/images/profile_screen/logout_icon.svg";
 import LoginIcon from "../../assets/images/profile_screen/login_icon.svg";
 import ProfileScreenButton from "../common/ProfileScreenButton/ProfileScreenButton";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { RootState } from "../../src/app/store";
 import ReturnButton from "../common/ReturnButton/ReturnButton";
 import { COLORS, FONTS } from "../../constants/theme";
@@ -29,8 +29,8 @@ const ProfileScreen = () => {
   const [profileLocation, setProfileLocation] = useState("");
   const [profPic, setProfPic] = useState("");
 
-  const { notificacionesPendientesDeVer, cantidadNotificacionesPendientes } =
-    useSelector((state: RootState) => state.notifications);
+  // const { notificacionesPendientesDeVer, cantidadNotificacionesPendientes } =
+  //   useSelector((state: RootState) => state.notifications);
   const router = useRouter();
 
   function logOut() {
@@ -101,7 +101,7 @@ const ProfileScreen = () => {
                 />
               ) : (
                 <View style={styles.noProfilePicture}>
-                  <NoAvatarIcon width={"100%"} height={"100%"} />
+                  {/* <NoAvatarIcon width={"100%"} height={"100%"} /> */}
                 </View>
               )}
             </LinearGradient>
@@ -143,7 +143,7 @@ const ProfileScreen = () => {
                 router.push("/events/myActivity");
               }}
             />
-            <ProfileScreenButton
+            {/* <ProfileScreenButton
               text="Notificaciones"
               icon={NotificationIcon}
               onPress={() => {
@@ -151,7 +151,7 @@ const ProfileScreen = () => {
               }}
               displayNotificationCircle={notificacionesPendientesDeVer}
               quantity={cantidadNotificacionesPendientes}
-            />
+            /> */}
             <ProfileScreenButton
               text="Mis categorías"
               icon={MyCategoriesIcon}
