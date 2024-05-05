@@ -22,7 +22,7 @@ export default function EventList() {
 
   const router = useRouter();
   return (
-    <View style={styles.container}>
+    <View testID="EventList:Container" style={styles.container}>
       {events.length != 0 ? (
         events
           .filter((event) => event.estatus === "disponible")
@@ -49,11 +49,11 @@ export default function EventList() {
                         </Text>
                       </View>
                       <View style={styles.assistants}>
-                        <ProfileIcon
+                        {/* <ProfileIcon
                           width={24}
                           height={24}
                           style={{ color: "white" }}
-                        />
+                        /> */}
                         <Text
                           style={[styles.subtitleText, styles.assistantsCount]}
                         >
@@ -70,7 +70,7 @@ export default function EventList() {
                           paddingRight: 15,
                         }}
                       >
-                        <MapPin />
+                        {/* <MapPin /> */}
                         <Text style={styles.subtitleText}>
                           {event.direccion}
                         </Text>
@@ -109,7 +109,7 @@ export default function EventList() {
       ) : (
         <View style={{ paddingTop: 100 }}>
           {loading ? (
-            <ActivityIndicator />
+            <ActivityIndicator testID="EventList:Loading" />
           ) : (
             <Text
               style={{
