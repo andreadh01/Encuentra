@@ -3,9 +3,9 @@ import React from "react";
 
 import { fireEvent, render } from "@testing-library/react-native";
 
-import EventList from "./EventList";
+import SearchBar from "./SearchBar";
+import EventList from "../../events/EventList/EventList";
 import { EventsContext } from "../../../src/providers/EventsProvider";
-import SearchBar from "../../common/SearchBar/SearchBar";
 
 jest.mock("expo-router");
 
@@ -86,38 +86,69 @@ const mockEventsContextValue = {
   },
 };
 
-describe("Explore events", () => {
-  it("should render a loading spinner", async () => {
-    const { findByTestId } = render(
-      <EventsContext.Provider value={mockEventsContextValue.loading}>
+describe("Search for events", () => {
+  it("should filter events by name", async () => {
+    let keyword = "";
+    let events = [...mockEventsContextValue.events.events];
+
+    const mockFilterEvents = jest.fn((term: string) => {
+      keyword = term;
+
+      if (keyword === "") {
+        events = [...mockEventsContextValue.events.events];
+
+        return;
+      }
+
+      events = [...mockEventsContextValue.events.events].filter((event) =>
+        event.nombre.toLowerCase().includes(keyword.toLowerCase())
+      );
+      console.log("events", events);
+    });
+
+    const mockSetClicked = jest.fn();
+
+    const { findByTestId, findByPlaceholderText, rerender } = render(
+      <EventsContext.Provider
+        value={{
+          ...mockEventsContextValue.events,
+          events,
+        }}
+      >
+        <SearchBar
+          searchPhrase={keyword}
+          setSearchPhrase={mockFilterEvents}
+          clicked={true}
+          setClicked={mockSetClicked}
+        />
         <EventList />
       </EventsContext.Provider>
     );
 
-    const loadingSpinner = await findByTestId("EventList:Loading");
-    expect(loadingSpinner).toBeTruthy();
-  });
+    const searchInput = await findByPlaceholderText("Buscar...");
+    fireEvent.changeText(searchInput, "Evento 1");
 
-  it("should render a message when there are no events", async () => {
-    const { findByText } = render(
-      <EventsContext.Provider value={mockEventsContextValue.noEvents}>
-        <EventList />
-      </EventsContext.Provider>
-    );
+    expect(mockFilterEvents).toHaveBeenCalledWith("Evento 1");
 
-    const noEventsMessage = await findByText("No se encontraron eventos");
-    expect(noEventsMessage).toBeTruthy();
-  });
-
-  it("should render a list of available events", async () => {
-    const { findByTestId } = render(
-      <EventsContext.Provider value={mockEventsContextValue.events}>
+    rerender(
+      <EventsContext.Provider
+        value={{
+          ...mockEventsContextValue.events,
+          events,
+        }}
+      >
+        <SearchBar
+          searchPhrase={keyword}
+          setSearchPhrase={mockFilterEvents}
+          clicked={true}
+          setClicked={mockSetClicked}
+        />
         <EventList />
       </EventsContext.Provider>
     );
 
     const eventList = await findByTestId("EventList:Container");
     expect(eventList).toBeTruthy();
-    expect(eventList.props.children.length).toBe(3);
+    expect(eventList.props.children.length).toBe(1);
   });
 });
